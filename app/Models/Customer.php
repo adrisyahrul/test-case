@@ -9,6 +9,11 @@ class Customer extends Model
 {
     use HasFactory;
     
-    protected $table = 'customers';
+    protected $table = 'customer';
     protected $fillable = ['id','code', 'name'];
+    
+    public function order()
+    {
+    	return $this->hasMany('App\Models\Order');
+    }
 }

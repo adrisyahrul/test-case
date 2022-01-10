@@ -13,7 +13,7 @@ class ItemsSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('items')->insert([
+        \DB::table('item')->insert([
             [
                 'code'          => 'A',
                 'name'          => 'ItemA',

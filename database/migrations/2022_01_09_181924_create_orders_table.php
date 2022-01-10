@@ -13,11 +13,10 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->id();
-            $table->integer('no');
             $table->string('date');
-            $table->string('customer');
+            $table->integer('customer_id');
             $table->integer('subtotal');
             $table->integer('discount');
             $table->integer('total');

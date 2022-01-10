@@ -66,8 +66,15 @@
                                     <a class="dropdown-item" href="{{ url('data/item') }}">Data Item</a>
                                 </div>
                             </li>
-                            <li>
-                                <a class="nav-link" href="#">Transaction Order</a>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Transaction
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/transaction/order') }}">Order</a>
+                                    <a class="dropdown-item" href="{{ url('/transaction/orderitem') }}">Order Item</a>
+                                </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
