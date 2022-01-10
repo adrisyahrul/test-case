@@ -23,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/data/customer', 'App\Http\Controllers\CustomerController@index');
 Route::post('/data/customer/add', 'App\Http\Controllers\CustomerController@store');
+Route::get('/data/customer/update/{id}', 'App\Http\Controllers\CustomerController@update');
+Route::put('/data/customer/edit/{id}', 'App\Http\Controllers\CustomerController@edit');
+Route::get('/data/customer/delete/{id}', 'App\Http\Controllers\CustomerController@delete');

@@ -29,11 +29,11 @@
                                         {{ csrf_field() }}
                                         <div class="form-group">
                                             <label>Code</label>
-                                            <input type="text" name="code" class="form-control" placeholder="Input Customer Code ..">
+                                            <input type="text" name="code" class="form-control" placeholder="Input Customer Code .." required="">
                                         </div>
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Input Customer Name ..">
+                                            <input type="text" name="name" class="form-control" placeholder="Input Customer Name .." required="">
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -61,8 +61,8 @@
                                 <td>{{ $p->code }}</td>
                                 <td>{{ $p->name }}</td>
                                 <td>
-                                    <a href="/data/customer/edit/{{ $p->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/data/customer/hapus/{{ $p->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ url('/data/customer/update') }}/{{ $p->id }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/data/customer/delete') }}/{{ $p->id }}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

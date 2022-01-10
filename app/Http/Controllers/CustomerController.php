@@ -30,4 +30,29 @@ class CustomerController extends Controller
  
     	return redirect('/data/customer');
     }
+    public function update($id)
+    {
+        $cust = Customer::find($id);
+        return view('customers.update', ['cust' => $cust]);
+    }
+
+    public function edit($id, Request $request)
+    {
+        $this->validate($request,[
+            'code' => 'required',
+            'name' => 'required'
+        ]);
+ 
+        $customer = Customer::find($id);
+        $customer->code = $request->code;
+        $customer->name = $request->name;
+        $customer->save();
+        return redirect('/data/customer');
+    }
+    public function delete($id)
+    {
+        $customer = Customer::find($id);
+        $customer->delete();
+        return redirect()->back();
+    }
 }
