@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     Interview Test Case
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -62,8 +62,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Data Customer</a>
-                                    <a class="dropdown-item" href="#">Data Item</a>
+                                    <a class="dropdown-item" href="{{ url('data/customer') }}">Data Customer</a>
+                                    <a class="dropdown-item" href="{{ url('data/item') }}">Data Item</a>
                                 </div>
                             </li>
                             <li>
