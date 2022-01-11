@@ -23,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::get('/home', 'App\Http\Controllers\QueryController@index');
+    Route::get('/dua', 'App\Http\Controllers\QueryController@dua');
+    Route::get('/tiga', 'App\Http\Controllers\QueryController@tiga');
 
     // route for data costumer
     Route::get('/data/customer', 'App\Http\Controllers\CustomerController@index');

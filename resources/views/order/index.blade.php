@@ -25,15 +25,15 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="#">
+                                    <form method="post" action="transaction/order/add">
                                         {{ csrf_field() }}
                                         <div class="form-group">
-                                            <label>Code</label>
+                                            <label>Date</label>
                                             <input type="text" name="code" class="form-control" placeholder="Input Item Code .." required="">
                                         </div>
                                         <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Input Item Name .." required="">
+                                            <label>Customer</label>
+                                            <input type="combobox" name="name" class="form-control" placeholder="Input Item Name .." required="">
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -61,13 +61,9 @@
                         <tbody>
                             @foreach($ord as $d)
                             <tr>
-                                <td>{{ $d->no }}</td>
+                                <td>{{ $d->id }}</td>
                                 <td>{{ $d->date }}</td>
-                                <td>
-                                @foreach($d->cust as $p)
-                                    {{ $p->code }}
-                                @endforeach
-                                </td>
+                                <td>{{ $d->customer }}</td>
                                 <td>{{ $d->subtotal }}</td>
                                 <td>{{ $d->discount }}</td>
                                 <td>{{ $d->total }}</td>

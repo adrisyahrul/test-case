@@ -13,33 +13,19 @@
                 <div class="card-header"><h3>Query</h3></div>
 
                 <div class="card-body">
-                    <h5>Query 1</h5>                    
+                    <h5>Query 2</h5>                    
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Date</th>
                                 <th>Customer</th>
                                 <th>Customer Name</th>
+                                <th>Date</th>
                                 <th>Qty</th>
-                                <th>Subtotal</th>
-                                <th>Discount</th>
                                 <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($querysatu as $qs)
-                            <tr>
-                                <td>{{ $qs->id }}</td>
-                                <td>{{ $qs->date }}</td>
-                                <td>{{ $qs->cust->code }}</td>
-                                <td>{{ $qs->cust->name }}</td>
-                                <td>{{ $qs->orderitem->sum('qty') }}</td>
-                                <td>{{ $qs->subtotal }}</td>
-                                <td>{{ $qs->discount }}</td>
-                                <td>{{ $qs->total }}</td>
-                            </tr>
-                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>

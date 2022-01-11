@@ -54,7 +54,13 @@
                             @endif
                         @else
                             <li>
-                                <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                                <a class="nav-link" href="{{ url('/home') }}">Query 1</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{{ url('/dua') }}">Query 2</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{{ url('/tiga') }}">Query 3</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

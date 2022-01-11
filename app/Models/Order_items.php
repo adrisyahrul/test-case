@@ -12,10 +12,10 @@ class Order_items extends Model
     
     public function orderr()
     {
-    	return $this->belongsTo('App\Models\Order', 'foreign_key');
+    	return $this->belongsTo(Order::class, 'order_id');
     }
     public function itemm()
     {
-    	return $this->belongsTo('App\Models\Item', 'foreign_key');
+    	return $this->belongsTo(Item::class, 'code');
     }
 }
