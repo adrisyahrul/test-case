@@ -28,7 +28,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @foreach($querysatu as $qs)
+                            <tr>
+                                <td>{{ $qs->id }}</td>
+                                <td>{{ $qs->date }}</td>
+                                <td>{{ $qs->code }}</td>
+                                <td>{{ $qs->name }}</td>
+                                <td>{{ $qs->qtys }}</td>
+                                <td>{{ $qs->subtotal }}</td>
+                                <td>{{ $qs->discount }}</td>
+                                <td>{{ $qs->total }}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <h5>Query 2</h5>                    

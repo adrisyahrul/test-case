@@ -13,11 +13,11 @@ class Order extends Model
  
     public function cust()
     {
-    	return $this->belongsTo('App\Models\Customer');
+    	return $this->belongsTo(Customer::class, 'code');
     }
 
     public function orderitem()
     {
-    	return $this->hasMany('App\Models\Order_items');
+    	return $this->hasMany('App\Models\Order_items', 'foreign_key');
     }
 }

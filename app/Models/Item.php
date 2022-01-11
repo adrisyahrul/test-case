@@ -13,6 +13,6 @@ class Item extends Model
 
     public function orderitemm()
     {
-    	return $this->hasMany('App\Models\Order_items');
+    	return $this->hasMany('App\Models\Order_items', 'foreign_key');
     }
 }
