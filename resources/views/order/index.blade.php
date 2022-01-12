@@ -14,8 +14,9 @@
                 <div class="card-header">
                     <span>Data Order</span>
                     <button type="button" class="btn btn-primary pull-right" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add order
+                        Add order (popup CRUD)
                     </button>
+                    <a href="{{ url('transaction/order/create') }}" class="btn btn-primary pull-right push-right">Add order (static CRUD)</a>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -70,6 +71,8 @@
                                 <th>SubTotal</th>
                                 <th>Discount</th>
                                 <th>Total</th>
+                                <th>Static Action</th>
+                                <th>Pop up Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,6 +84,10 @@
                                 <td>{{ $d->subtotal }}</td>
                                 <td>{{ $d->discount }}</td>
                                 <td>{{ $d->total }}</td>
+                                <td>
+                                    <a href="{{ url('transaction/order/sunting') }}/{{ $d->id }}">Edit</a>|
+                    				<a href="{{ url('transaction/order/hapus') }}/{{ $d->id }}">Hapus</a>
+                                </td>
                                 <td>
                                     <button class="btn btn-warning btn-edit" data-id={{ $d->id }}>Edit</button>
                                     <button class="btn btn-danger btn-delete" data-id={{ $d->id }}>Delete</button>

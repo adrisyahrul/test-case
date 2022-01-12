@@ -71,4 +71,42 @@ class OrderController extends Controller
             "success" => true
         ]);
     }
+
+    // controller for static add page
+    public function create()
+    {
+        $cust = Customer::all();
+    	return view('order.create',['cust' => $cust]);
+    }
+    public function sunting($id)
+    {
+        $ord = Order::find($id);
+        $cust = Customer::all();
+    	return view('order.update',['ord' => $ord, 'cust' => $cust]);
+    }
+    public function ubah($id, Request $request)
+    {
+        $this->validate($request,[
+            'id' => 'required',
+            'date' => 'required',
+    		'customer_id' => 'required',
+    		'subtotal' => 'required',
+    		'discount' => 'required',
+    		'total' => 'required'
+        ]);
+ 
+        $ord = Order::find($id);
+        $ord->date = $request->date;
+        $ord->customer_id = $request->customer_id;
+        $ord->subtotal = $request->subtotal;
+        $ord->discount = $request->discount;
+        $ord->total = $request->total;
+        $ord->save();
+        return redirect('/transaction/order');
+    }
+    public function hapus($id){
+        $ord = Order::find($id);
+        $ord->delete();
+        return redirect('/transaction/order');
+    }
 }
