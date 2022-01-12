@@ -41,12 +41,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/data/item/edit', 'App\Http\Controllers\ItemController@edit');
     Route::post('/data/item/delete', 'App\Http\Controllers\ItemController@delete')->name('item.delete');
     
-    // Route::get('/data/item', 'App\Http\Controllers\ItemController@index');
-    // Route::post('/data/item/add', 'App\Http\Controllers\ItemController@store');
-    // Route::get('/data/item/update/{id}', 'App\Http\Controllers\ItemController@update');
-    // Route::put('/data/item/edit/{id}', 'App\Http\Controllers\ItemController@edit');
-    // Route::get('/data/item/delete/{id}', 'App\Http\Controllers\ItemController@delete');
-
     // route transaction
     Route::get('/transaction/order', 'App\Http\Controllers\OrderController@index');
     Route::post('/transaction/order/add', 'App\Http\Controllers\OrderController@store');

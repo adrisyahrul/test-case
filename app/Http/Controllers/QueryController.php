@@ -17,7 +17,7 @@ class QueryController extends Controller
     }
 
     public function dua(){
-        $querydua = Order::get();
+        $querydua = Order::groupBy('date')->groupBy('customer_id')->get();
         return view('home.dua', ['querydua' => $querydua]);
     }
 
