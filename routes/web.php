@@ -22,6 +22,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    // route query
     Route::get('/home', 'App\Http\Controllers\QueryController@index');
     Route::get('/dua', 'App\Http\Controllers\QueryController@dua');
     Route::get('/tiga', 'App\Http\Controllers\QueryController@tiga');
@@ -40,9 +41,18 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/data/item/edit/{id}', 'App\Http\Controllers\ItemController@edit');
     Route::get('/data/item/delete/{id}', 'App\Http\Controllers\ItemController@delete');
 
-    // route one to many
+    // route transaction
     Route::get('/transaction/order', 'App\Http\Controllers\OrderController@index');
+    Route::post('/transaction/order/add', 'App\Http\Controllers\OrderController@store');
+    // Route::get('/transaction/order/update/{id}', 'App\Http\Controllers\OrderController@update');
+    // Route::put('/transaction/order/edit/{id}', 'App\Http\Controllers\OrderController@edit');
+    // Route::get('/transaction/order/delete/{id}', 'App\Http\Controllers\OrderController@delete');
+
     Route::get('/transaction/orderitem', 'App\Http\Controllers\OrderItemController@index');
+    // Route::post('/transaction/orderitem/add', 'App\Http\Controllers\OrderItemController@store');
+    // Route::get('/transaction/orderitem/update/{id}', 'App\Http\Controllers\OrderItemController@update');
+    // Route::put('/transaction/orderitem/edit/{id}', 'App\Http\Controllers\OrderItemController@edit');
+    // Route::get('/transaction/orderitem/delete/{id}', 'App\Http\Controllers\OrderItemController@delete');
 });
 
 

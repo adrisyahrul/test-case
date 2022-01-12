@@ -13,6 +13,6 @@ class Item extends Model
 
     public function orderitemm()
     {
-    	return $this->hasMany(Order_items::class, 'code');
+    	return $this->hasMany(Order_items::class, 'item_id');
     }
 }

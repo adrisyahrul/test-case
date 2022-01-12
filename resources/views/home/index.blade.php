@@ -10,10 +10,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h3>Query</h3></div>
+                <div class="card-header"><h3>Query 1</h3></div>
 
                 <div class="card-body">
-                    <h5>Query 1</h5>                    
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
                             <tr>

@@ -10,10 +10,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h3>Query</h3></div>
+                <div class="card-header"><h3>Query 3</h3></div>
 
                 <div class="card-body">
-                    <h5>Query 3</h5>                    
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
                             <tr>
@@ -25,7 +24,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @foreach($querytiga as $qt)
+                            <tr>
+                                <td>{{ $qt->code }}</td>
+                                <td>{{ $qt->name }}</td>
+                                <td>{{ $qt->orderitemm->sum('qty') }}</td>
+                                <td>{{ $qt->orderitemm->avg('price') }}</td>
+                                <td>{{ $qt->orderitemm->sum('total') }}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

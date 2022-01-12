@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Order_items;
 use App\Models\Customer;
+use App\Models\Item;
 use Redirect,Response;
 
 class QueryController extends Controller
@@ -21,7 +22,7 @@ class QueryController extends Controller
     }
 
     public function tiga(){
-        $querytiga = Order::get();
+        $querytiga = Item::get();
         return view('home.tiga', ['querytiga' => $querytiga]);
     }
 }
