@@ -1,0 +1,15 @@
+.landing-box {
+    padding: 20px;
+    text-align: center;
+}
+.pull-right {
+    float: right;
+}
+.card-header span {
+    font-size: 16px;
+    padding: 5px;
+    display: inline-block;
+}
+.push-top {
+    margin-top: 15px;
+}
