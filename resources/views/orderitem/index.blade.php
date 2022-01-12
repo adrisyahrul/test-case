@@ -61,7 +61,7 @@
                             @foreach($ord as $d)
                             <tr>
                                 <td>{{ $d->order_id }}</td>
-                                <td>{{ $d->item }}</td>
+                                <td>{{ $d->itemm->code }}</td>
                                 <td>{{ $d->qty }}</td>
                                 <td>{{ $d->price }}</td>
                                 <td>{{ $d->total }}</td>

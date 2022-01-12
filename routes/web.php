@@ -44,9 +44,9 @@ Route::middleware(['auth'])->group(function () {
     // route transaction
     Route::get('/transaction/order', 'App\Http\Controllers\OrderController@index');
     Route::post('/transaction/order/add', 'App\Http\Controllers\OrderController@store');
-    // Route::get('/transaction/order/update/{id}', 'App\Http\Controllers\OrderController@update');
-    // Route::put('/transaction/order/edit/{id}', 'App\Http\Controllers\OrderController@edit');
-    // Route::get('/transaction/order/delete/{id}', 'App\Http\Controllers\OrderController@delete');
+    Route::get('/transaction/order/update/{id}', 'App\Http\Controllers\OrderController@update');
+    Route::put('/transaction/order/edit/{id}', 'App\Http\Controllers\OrderController@edit');
+    Route::get('/transaction/order/delete/{id}', 'App\Http\Controllers\OrderController@delete');
 
     Route::get('/transaction/orderitem', 'App\Http\Controllers\OrderItemController@index');
     // Route::post('/transaction/orderitem/add', 'App\Http\Controllers\OrderItemController@store');

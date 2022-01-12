@@ -10,6 +10,7 @@ class Order extends Model
     use HasFactory;
 
     protected $table = "order";
+    protected $fillable = ['id','date', 'customer_id','subtotal', 'discount', 'total'];
  
     public function cust()
     {

@@ -42,13 +42,17 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Subtotal</label>
-                                            <input type="text" name="subtotal" class="form-control" placeholder="Date order .." required="">
+                                            <input type="text" name="subtotal" class="form-control" placeholder="Subtotal .." required="">
                                         </div>
                                         <div class="form-group">
                                             <label>Discount</label>
-                                            <input type="text" name="discount" class="form-control" placeholder="Date order .." required="">
+                                            <input type="text" name="discount" class="form-control" placeholder="Discount .." required="">
                                         </div>
-                                        <input type="hidden" id="total" name="total">
+                                        <div class="form-group">
+                                            <label>Total</label>
+                                            <input type="text" name="total" class="form-control" placeholder="Total .." required="">
+                                        </div>
+                                        <!-- <input type="hidden" id="total" name="total"> -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -82,8 +86,8 @@
                                 <td>{{ $d->discount }}</td>
                                 <td>{{ $d->total }}</td>
                                 <td>
-                                    <a href="{{ url('/data/item/update') }}/{{ $d->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="{{ url('/data/item/delete') }}/{{ $d->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ url('/transaction/order/update') }}/{{ $d->id }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/transaction/order/delete') }}/{{ $d->id }}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

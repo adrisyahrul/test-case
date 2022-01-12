@@ -19,7 +19,8 @@ class OrderController extends Controller
     		'date' => 'required',
     		'customer_id' => 'required',
     		'subtotal' => 'required',
-    		'discount' => 'required'
+    		'discount' => 'required',
+    		'total' => 'required'
     	]);
  
         Order::create([
@@ -32,5 +33,35 @@ class OrderController extends Controller
  
     	return redirect('/transaction/order');
     }
-    
+    public function update($id)
+    {
+        $ord = Order::find($id);
+    	return view('order.update',['ord' => $ord]);
+    }
+
+    public function edit($id, Request $request)
+    {
+        $this->validate($request,[
+            'date' => 'required',
+    		'customer_id' => 'required',
+    		'subtotal' => 'required',
+    		'discount' => 'required',
+    		'total' => 'required'
+        ]);
+ 
+        $ord = Order::find($id);
+        $ord->date = $request->date;
+        $ord->customer_id = $request->customer_id;
+        $ord->subtotal = $request->subtotal;
+        $ord->discount = $request->discount;
+        $ord->total = $request->total;
+        $customer->save();
+        return redirect('/transaction/order');
+    }
+	public function delete($id)
+    {
+        $ord = Order::find($id);
+        $ord->delete();
+        return redirect()->back();
+    }
 }
