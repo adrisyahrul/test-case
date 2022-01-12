@@ -29,10 +29,10 @@ Route::middleware(['auth'])->group(function () {
 
     // route for data costumer
     Route::get('/data/customer', 'App\Http\Controllers\CustomerController@index');
+    Route::post('/data/customer/find', 'App\Http\Controllers\CustomerController@find')->name('customer.find');
     Route::post('/data/customer/add', 'App\Http\Controllers\CustomerController@store');
-    Route::get('/data/customer/update/{id}', 'App\Http\Controllers\CustomerController@update');
-    Route::put('/data/customer/edit/{id}', 'App\Http\Controllers\CustomerController@edit');
-    Route::get('/data/customer/delete/{id}', 'App\Http\Controllers\CustomerController@delete');
+    Route::put('/data/customer/edit', 'App\Http\Controllers\CustomerController@edit');
+    Route::post('/data/customer/delete', 'App\Http\Controllers\CustomerController@delete')->name('customer.delete');
 
     // route for data items
     Route::get('/data/item', 'App\Http\Controllers\ItemController@index');

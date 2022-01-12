@@ -10,11 +10,17 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        //
         $cust = Customer::all();
  
-    	// mengirim data pegawai ke view pegawai
     	return view('customers.index', ['cust' => $cust]);
+    }
+    public function find(Request $request)
+    {
+        $data = Customer::find($request->id);
+
+        return response()->json([
+            "data" => $data
+        ]);
     }
     public function store(Request $request)
     {
@@ -30,29 +36,28 @@ class CustomerController extends Controller
  
     	return redirect('/data/customer');
     }
-    public function update($id)
-    {
-        $cust = Customer::find($id);
-        return view('customers.update', ['cust' => $cust]);
-    }
 
-    public function edit($id, Request $request)
+    public function edit(Request $request)
     {
         $this->validate($request,[
+            'id' => 'required',
             'code' => 'required',
             'name' => 'required'
         ]);
  
-        $customer = Customer::find($id);
+        $customer = Customer::find($request->id);
         $customer->code = $request->code;
         $customer->name = $request->name;
         $customer->save();
         return redirect('/data/customer');
     }
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $customer = Customer::find($id);
+        $customer = Customer::find($request->id);
         $customer->delete();
-        return redirect()->back();
+        
+        return response()->json([
+            "success" => true
+        ]);
     }
 }
