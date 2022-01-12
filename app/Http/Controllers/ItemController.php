@@ -11,7 +11,16 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
+ 
     	return view('items.index', ['items' => $items]);
+    }
+    public function find(Request $request)
+    {
+        $data = Item::find($request->id);
+
+        return response()->json([
+            "data" => $data
+        ]);
     }
     public function store(Request $request)
     {
@@ -27,29 +36,28 @@ class ItemController extends Controller
  
     	return redirect('/data/item');
     }
-    public function update($id)
-    {
-        $items = Item::find($id);
-        return view('items.update', ['items' => $items]);
-    }
 
-    public function edit($id, Request $request)
+    public function edit(Request $request)
     {
         $this->validate($request,[
+            'id' => 'required',
             'code' => 'required',
             'name' => 'required'
         ]);
  
-        $items = Item::find($id);
+        $items = Item::find($request->id);
         $items->code = $request->code;
         $items->name = $request->name;
         $items->save();
         return redirect('/data/item');
     }
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $items = Item::find($id);
+        $items = Item::find($request->id);
         $items->delete();
-        return redirect()->back();
+        
+        return response()->json([
+            "success" => true
+        ]);
     }
 }
