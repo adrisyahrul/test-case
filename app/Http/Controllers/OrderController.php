@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Customer;
 use Redirect,Response;
 
 class OrderController extends Controller
 {
     public function index(){
    	    $ord = Order::all();
-    	return view('order.index',['ord' => $ord]);
+        $cust = Customer::all();
+    	return view('order.index',['ord' => $ord, 'cust' => $cust]);
     }
+    public function find(Request $request)
+    {
+        $data = Order::find($request->id);
 
+        return response()->json([
+            "data" => $data
+        ]);
+    }
     public function store(Request $request)
     {
     	$this->validate($request,[
@@ -33,15 +42,10 @@ class OrderController extends Controller
  
     	return redirect('/transaction/order');
     }
-    public function update($id)
-    {
-        $ord = Order::find($id);
-    	return view('order.update',['ord' => $ord]);
-    }
-
-    public function edit($id, Request $request)
+    public function edit(Request $request)
     {
         $this->validate($request,[
+            'id' => 'required',
             'date' => 'required',
     		'customer_id' => 'required',
     		'subtotal' => 'required',
@@ -49,19 +53,22 @@ class OrderController extends Controller
     		'total' => 'required'
         ]);
  
-        $ord = Order::find($id);
+        $ord = Order::find($request->id);
         $ord->date = $request->date;
         $ord->customer_id = $request->customer_id;
         $ord->subtotal = $request->subtotal;
         $ord->discount = $request->discount;
         $ord->total = $request->total;
-        $customer->save();
+        $ord->save();
         return redirect('/transaction/order');
     }
-	public function delete($id)
+    public function delete(Request $request)
     {
-        $ord = Order::find($id);
+        $ord = Order::find($request->id);
         $ord->delete();
-        return redirect()->back();
+        
+        return response()->json([
+            "success" => true
+        ]);
     }
 }

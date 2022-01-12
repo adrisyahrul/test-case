@@ -43,16 +43,16 @@ Route::middleware(['auth'])->group(function () {
     
     // route transaction
     Route::get('/transaction/order', 'App\Http\Controllers\OrderController@index');
+    Route::post('/transaction/order/find', 'App\Http\Controllers\OrderController@find')->name('order.find');
     Route::post('/transaction/order/add', 'App\Http\Controllers\OrderController@store');
-    Route::get('/transaction/order/update/{id}', 'App\Http\Controllers\OrderController@update');
-    Route::put('/transaction/order/edit/{id}', 'App\Http\Controllers\OrderController@edit');
-    Route::get('/transaction/order/delete/{id}', 'App\Http\Controllers\OrderController@delete');
+    Route::put('/transaction/order/edit', 'App\Http\Controllers\OrderController@edit');
+    Route::post('/transaction/order/delete', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 
     Route::get('/transaction/orderitem', 'App\Http\Controllers\OrderItemController@index');
-    // Route::post('/transaction/orderitem/add', 'App\Http\Controllers\OrderItemController@store');
-    // Route::get('/transaction/orderitem/update/{id}', 'App\Http\Controllers\OrderItemController@update');
-    // Route::put('/transaction/orderitem/edit/{id}', 'App\Http\Controllers\OrderItemController@edit');
-    // Route::get('/transaction/orderitem/delete/{id}', 'App\Http\Controllers\OrderItemController@delete');
+    Route::post('/transaction/orderitem/find', 'App\Http\Controllers\OrderItemController@find')->name('orderitem.find');
+    Route::post('/transaction/orderitem/add', 'App\Http\Controllers\OrderItemController@store');
+    Route::put('/transaction/orderitem/edit', 'App\Http\Controllers\OrderItemController@edit');
+    Route::post('/transaction/orderitem/delete', 'App\Http\Controllers\OrderItemController@delete')->name('orderitem.delete');
 });
 
 
