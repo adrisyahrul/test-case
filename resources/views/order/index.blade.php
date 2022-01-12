@@ -116,11 +116,11 @@
                     <input type="hidden" name="id" id="id">
                     <div class="form-group">
                         <label>Date</label>
-                        <input type="text" id="date1" name="date" class="form-control" placeholder="Date order .." required="">
+                        <input type="text" id="date" name="date" class="form-control" placeholder="Date order .." required="">
                     </div>
                     <div class="form-group">
                         <label>Customer</label>
-                        <select  id="customer_id1" name="customer_id" class="form-select" aria-label="Default select example">
+                        <select  id="customer_id" name="customer_id" class="form-select" aria-label="Default select example">
                             @foreach($cust as $d)
                             <option value="{{ $d->id }}">{{ $d->name }}</option>
                             @endforeach
@@ -160,8 +160,8 @@
             },
             success: function(result) {
                 $("#id").val(result.data.id)
-                $("#date1").val(result.data.date)
-                $("#costumer_id1").val(result.data.costumer_id)
+                $("#date").val(result.data.date)
+                $("#costumer_id").val(result.data.costumer_id)
                 $("#subtotal1").val(result.data.subtotal)
                 $("#discount1").val(result.data.discount)
                 $("#total1").val(result.data.total)

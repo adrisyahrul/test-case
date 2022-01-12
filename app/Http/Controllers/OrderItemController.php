@@ -56,7 +56,7 @@ class OrderItemController extends Controller
         ]);
 
         $ord = Order_items::find($request->id);
-        $ord->order_id = $request->date;
+        $ord->order_id = $request->order_id;
         $ord->item_id = $request->item_id;
         $ord->qty = $request->qty;
         $ord->price = $request->price;

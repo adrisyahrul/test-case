@@ -112,8 +112,7 @@
                     <input type="hidden" name="id" id="id">
                     <div class="form-group">
                         <label>Order ID</label>
-                        <select name="order_id" class="form-select" aria-label="Default select example">
-                            <option selected>Select Item</option>
+                        <select id="order_id" name="order_id" class="form-select" aria-label="Default select example">
                             @foreach($order as $s)
                             <option value="{{ $s->id }}">{{ $s->id }}</option>
                             @endforeach
@@ -122,7 +121,6 @@
                     <div class="form-group">
                         <label>Item</label>
                         <select id="item_id" name="item_id" class="form-select" aria-label="Default select example">
-                            <option selected>Select Item</option>
                             @foreach($item as $d)
                             <option value="{{ $d->id }}">{{ $d->name }}</option>
                             @endforeach
@@ -161,9 +159,9 @@
                 id : id
             },
             success: function(result) {
-                $("#id1").val(result.data.id)
-                $("#order_id1").val(result.data.order_id)
-                $("#item_id1").val(result.data.item_id)
+                $("#id").val(result.data.id)
+                $("#order_id").val(result.data.order_id)
+                $("#item_id").val(result.data.item_id)
                 $("#qty1").val(result.data.qty)
                 $("#price1").val(result.data.price)
                 $("#total1").val(result.data.total)
